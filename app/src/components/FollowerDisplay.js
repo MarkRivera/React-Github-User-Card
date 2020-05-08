@@ -10,7 +10,6 @@ import './FollowerDisplay.css';
 
 
 function FollowerDisplay ({ followers }) {
-    console.log(followers)
     return(
         <>
             {
@@ -25,7 +24,7 @@ function FollowerDisplay ({ followers }) {
                         
                         followers.map(follower => {
                             return (
-                                <Col>
+                                <Col key={follower.id}>
                                     <Card>
                                         <CardImg src={follower.avatar_url} />
                                         <CardBody>

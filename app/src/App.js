@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Row, Col } from 'reactstrap';
+import { Container } from 'reactstrap';
 import axios from 'axios';
 import './App.css';
 
@@ -30,7 +30,6 @@ class App extends Component {
 
     axios.get('https://api.github.com/users/MarkRivera/followers')
       .then(res => {
-        console.log(res.data)
         this.setState({
           followers: res.data
         })

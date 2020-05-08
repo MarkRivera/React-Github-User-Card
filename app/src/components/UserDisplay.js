@@ -5,7 +5,6 @@ import './UserDisplay.css';
 import FollowerDisplay from './FollowerDisplay';
 
 function UserDisplay ({ userImg, userLocation, userFollowers, userBio, userRepos, userSite, followers }) {
-    console.log(followers);
     return (
         <Row className="justify-content-center user-card">
             <Col className="my-4">
