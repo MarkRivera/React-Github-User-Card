@@ -1,0 +1,12 @@
+.text-change {
+    color: #0F2027;
+    animation-name: changeColor;
+    animation-duration: 4s;
+    animation-timing-function: ease-in-out;
+    animation-fill-mode: forwards;
+}
+
+@keyframes changeColor {
+    from {color: #0F2027;}
+    to {color: #FFF;}
+}

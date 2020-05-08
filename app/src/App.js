@@ -4,6 +4,7 @@ import axios from 'axios';
 import './App.css';
 
 import UserDisplay from './components/UserDisplay';
+import UserHeader from './components/UserHeader';
 
 class App extends Component {
   constructor(props) {
@@ -28,13 +29,9 @@ class App extends Component {
     return (
       <main className="app">
         <Container>
-          <Row>
-            <Col>
-              <h1 className="display-4 text-center text-change">
-                Hello, {this.state.user.name} 
-              </h1>
-            </Col>
-          </Row>
+          <UserHeader 
+            userName={this.state.user.name}
+          />
 
           <UserDisplay 
             userImg={this.state.user.avatar_url}
