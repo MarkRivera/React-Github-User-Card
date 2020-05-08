@@ -2,7 +2,10 @@ import React from 'react';
 import { Row, Col, Media } from 'reactstrap';
 import './UserDisplay.css';
 
-function UserDisplay ({ userImg, userLocation, userFollowers, userBio, userRepos, userSite }) {
+import FollowerDisplay from './FollowerDisplay';
+
+function UserDisplay ({ userImg, userLocation, userFollowers, userBio, userRepos, userSite, followers }) {
+    console.log(followers);
     return (
         <Row className="justify-content-center user-card">
             <Col className="my-4">
@@ -13,7 +16,8 @@ function UserDisplay ({ userImg, userLocation, userFollowers, userBio, userRepos
                 </Media>
             </Col>
 
-            <Col xs="12" sm="12" md="6" className="text-center my-4">
+            <Col xs="12" sm="12" md="6" className="text-center my-4 align-items-center">
+                <section className="user-info">
                 <p>
                     You're a Developer based in <strong className="text-info">{userLocation}</strong>
                 </p>
@@ -48,6 +52,15 @@ function UserDisplay ({ userImg, userLocation, userFollowers, userBio, userRepos
                     <br/>
                     <a href={userSite}>Mark's Website</a>
                 </p>
+                </section>
+            </Col>
+            
+            <div className="w-100"></div>
+            
+            <Col>
+                <Row className="align-items-center justify-content-center" xs="1" sm="2" md="4">
+                    <FollowerDisplay followers={followers} />
+                </Row>
             </Col>
         </Row>
     );

@@ -12,8 +12,10 @@ class App extends Component {
     this.state = {
       user: {
         name: "User",
-        bio: "Hey I'm Mark"
-      }
+        bio: "Hey I'm Mark",
+      },
+
+      followers: []
     }
   }
 
@@ -23,12 +25,22 @@ class App extends Component {
         user: res.data
       }))
       .catch(err => console.log(err))
+
+    // Get Followers
+
+    axios.get('https://api.github.com/users/MarkRivera/followers')
+      .then(res => {
+        console.log(res.data)
+        this.setState({
+          followers: res.data
+        })
+      })
   }
 
   render() {
     return (
       <main className="app">
-        <Container>
+        <Container className="container-fluid">
           <UserHeader 
             userName={this.state.user.name}
           />
@@ -40,6 +52,7 @@ class App extends Component {
             userBio={this.state.user.bio}
             userRepos={this.state.user.public_repos}
             userSite={this.state.user.blog}
+            followers={this.state.followers}
           />
         </Container>
       </main>
